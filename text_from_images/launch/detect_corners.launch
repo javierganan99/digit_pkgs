@@ -1,0 +1,17 @@
+<!-- Launch file detect the corners of the digits -->
+<launch>
+  <!-- Camera to output the results for -->
+  <arg name="camera" />
+  <!-- Whether to show or not the images with the corners detected and the digits after homography -->
+  <arg name="show" default="true" />
+  <!-- File containing the parameters -->
+  <rosparam file="$(find text_from_images)/config/parameters.yaml" />
+  <!-- Node to detect the keypoints -->
+  <node name="detect_keypoints" pkg="text_from_images" type="detect_keypoints.py" output="screen">
+    <param name="camera" value="$(arg camera)" />
+    <param name="show" value="$(arg show)" />
+  </node>
+  <!-- Node to play the corresponging bag -->
+  <node pkg="rosbag" type="play" name="player" output="screen"
+    args="--clock /home/grvc/catkin_ws/src/aruco_markers/bags/$(arg camera).bag" />
+</launch>

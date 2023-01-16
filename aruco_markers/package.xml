@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>aruco_markers</name>
+  <version>0.0.0</version>
+  <description>The aruco_markers package</description>
+  <maintainer email="fgannan@us.es">grvc</maintainer>
+  <license>TODO</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>sensor_msgs</build_export_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+</package>
