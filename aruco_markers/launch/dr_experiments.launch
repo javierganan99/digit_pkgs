@@ -20,5 +20,5 @@
   </node>
   <!-- Node to play the corresponging bag -->
   <node pkg="rosbag" type="play" name="player" output="screen"
-    args="--clock /home/grvc/catkin_ws/src/aruco_markers/bags/$(arg camera).bag" />
+    args="--clock $(find aruco_markers)/bags/$(arg camera).bag" />
 </launch>

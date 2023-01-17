@@ -47,16 +47,9 @@ if __name__ == "__main__":
     camera = rospy.get_param("~camera")
     model_file = rospy.get_param("model_file")
     boxes = rospy.get_param("boxes")
-    if camera == "blue":
-        topic_digits = rospy.get_param("blue")["topic_digits"]
-    elif camera == "elp":
-        topic_digits = rospy.get_param("elp")["topic_digits"]
-    elif camera == "zed":
-        topic_digits = rospy.get_param("zed")["topic_digits"]
-    elif camera == "rs":
-        topic_digits = rospy.get_param("rs")["topic_digits"]
-    elif camera == "ecap":
-        topic_digits = rospy.get_param("ecap")["topic_digits"]
+    cameras_list = ["blue", "elp", "zed", "rs", "ecap"]
+    if camera in cameras_list:
+        topic_digits = rospy.get_param(camera)["topic_digits"]
     else:
         rospy.logerr("Not the correct camera")
         raise Exception("Select the correct camera")

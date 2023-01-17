@@ -46,7 +46,7 @@ def image_callback(image: Image):
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     """
     GRADED:
-    Call the get_normalize method of Homography class and save the returned image in img variable 
+    Call the get_normalize method of Homography class (passing img as a parameter) and save the returned image in img variable 
     ~ 1 line
     """
     if show:
@@ -101,33 +101,17 @@ if __name__ == "__main__":
     # Read parameters from launch
     show = rospy.get_param("~show")
     camera = rospy.get_param("~camera")
-    model_file = rospy.get_param("model_file")
+    catkin_path = rospy.get_param("catkin_path")
+    if not catkin_path[-1] == "/":
+        catkin_path += "/"
+    model_file = catkin_path + rospy.get_param("model_file")
     boxes = rospy.get_param("boxes")
-    if camera == "blue":
-        topic_digits = rospy.get_param("blue")["topic_digits"]
-        n.int_points = rospy.get_param("blue")["int_points"]
-        n.dst_points = rospy.get_param("blue")["pts_dst"]
-        output_file_luxes = rospy.get_param("blue")["output_file_luxes"]
-    elif camera == "elp":
-        topic_digits = rospy.get_param("elp")["topic_digits"]
-        n.int_points = rospy.get_param("elp")["int_points"]
-        n.dst_points = rospy.get_param("elp")["pts_dst"]
-        output_file_luxes = rospy.get_param("elp")["output_file_luxes"]
-    elif camera == "zed":
-        topic_digits = rospy.get_param("zed")["topic_digits"]
-        n.int_points = rospy.get_param("zed")["int_points"]
-        n.dst_points = rospy.get_param("zed")["pts_dst"]
-        output_file_luxes = rospy.get_param("zed")["output_file_luxes"]
-    elif camera == "rs":
-        topic_digits = rospy.get_param("rs")["topic_digits"]
-        n.int_points = rospy.get_param("rs")["int_points"]
-        n.dst_points = rospy.get_param("rs")["pts_dst"]
-        output_file_luxes = rospy.get_param("rs")["output_file_luxes"]
-    elif camera == "ecap":
-        topic_digits = rospy.get_param("ecap")["topic_digits"]
-        n.int_points = rospy.get_param("ecap")["int_points"]
-        n.dst_points = rospy.get_param("ecap")["pts_dst"]
-        output_file_luxes = rospy.get_param("ecap")["output_file_luxes"]
+    cameras_list = ["blue", "elp", "zed", "rs", "ecap"]
+    if camera in cameras_list:
+        topic_digits = rospy.get_param(camera)["topic_digits"]
+        n.int_points = rospy.get_param(camera)["int_points"]
+        n.dst_points = rospy.get_param(camera)["pts_dst"]
+        output_file_luxes = catkin_path + rospy.get_param(camera)["output_file_luxes"]
     else:
         rospy.logerr("Not the correct camera")
         raise Exception("Select the correct camera")

@@ -1,5 +1,10 @@
+# Path to your catkin_ws
+catkin_path: /home/grvc/catkin_ws
+
+# All the following paths must be relative to catkin_path!
+
 # Path to the digit classifier
-model_file: /home/grvc/catkin_ws/src/text_from_images/model/digit_classification.h5
+model_file: src/text_from_images/model/digit_classification.h5
 # Four boxes coordinates to crop the digits: [x0,x1,y0,y1]
 boxes:
   [[4, 27, 20, 80],
@@ -12,28 +17,28 @@ boxes:
 #  -- topic digits: Topic in which the image of the digits is published
 #  -- output_file_luxes: File in which to write the timestamps along with the read digits
 blue:
-  int_points: # AÑADIR LOS PUNTOS
-  pts_dst: # AÑADIR LOS PÛNTOS
+  int_points: # GRADED: Add the points
+  pts_dst: # GRADED: Add the points
   topic_digits: /usb_cam/image_raw
-  output_file_luxes: /home/grvc/catkin_ws/src/text_from_images/output/Recognized_blue.txt 
+  output_file_luxes: src/text_from_images/output/Recognized_blue.txt 
 elp:
-  int_points: [[312, 145], [313, 55], [399, 65], [399, 152]]
-  pts_dst: [[0, 100], [0, 0], [100, 0], [100, 100]]
+  int_points: # GRADED: Add the points
+  pts_dst: # GRADED: Add the points
   topic_digits: /camera/color/image_raw
-  output_file_luxes: /home/grvc/catkin_ws/src/text_from_images/output/Recognized_elp.txt 
+  output_file_luxes: src/text_from_images/output/Recognized_elp.txt 
 zed:
   int_points: [[322, 150], [324, 61], [409, 71], [409, 157]]
   pts_dst: [[0, 100], [0, 0], [100, 0], [100, 100]]
   topic_digits: /usb_cam/image_raw
-  output_file_luxes: /home/grvc/catkin_ws/src/text_from_images/output/Recognized_zed.txt 
+  output_file_luxes: src/text_from_images/output/Recognized_zed.txt 
 rs:
   int_points: [[632, 209], [634, 75], [762, 88], [762, 220]]
   pts_dst: [[0, 100], [0, 0], [100, 0], [100, 100]]
   topic_digits: /usb_cam/image_raw
-  output_file_luxes: /home/grvc/catkin_ws/src/text_from_images/output/Recognized_rs.txt 
+  output_file_luxes: src/text_from_images/output/Recognized_rs.txt 
 ecap:
   int_points: [[630, 62], [630, 198], [760, 76], [760, 209]]
   pts_dst: [[0, 0], [0, 100], [100, 0], [100, 100]]
   topic_digits: /usb_cam/image_raw
-  output_file_luxes: /home/grvc/catkin_ws/src/text_from_images/output/Recognized_ecap.txt 
+  output_file_luxes: src/text_from_images/output/Recognized_ecap.txt 
 

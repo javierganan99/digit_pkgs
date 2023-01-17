@@ -144,36 +144,18 @@ if __name__ == "__main__":
     show = rospy.get_param("~show")
     camera = rospy.get_param("~camera")
     aruco_type = rospy.get_param("aruco_type")
-    if camera == "blue":
-        calibration_path = rospy.get_param("blue")["calibration_path"]
-        aps_frames_topic = rospy.get_param("blue")["aps_frames_topic"]
+    catkin_path = rospy.get_param("catkin_path")
+    if not catkin_path[-1] == "/":
+        catkin_path += "/" 
+    cameras_list = ["blue", "elp", "zed", "rs", "ecap"]
+    if camera in cameras_list:
+        calibration_path = rospy.get_param(camera)["calibration_path"]
+        if calibration_path:
+            calibration_path = catkin_path + calibration_path
+        aps_frames_topic = rospy.get_param(camera)["aps_frames_topic"]
         reconstructed_frames_topic = rospy.get_param(
-            "blue")["reconstructed_frames_topic"]
-        output_file_arucos = rospy.get_param("blue")["output_file_arucos"]
-    elif camera == "elp":
-        calibration_path = rospy.get_param("elp")["calibration_path"]
-        aps_frames_topic = rospy.get_param("elp")["aps_frames_topic"]
-        reconstructed_frames_topic = rospy.get_param(
-            "elp")["reconstructed_frames_topic"]
-        output_file_arucos = rospy.get_param("elp")["output_file_arucos"]
-    elif camera == "zed":
-        calibration_path = rospy.get_param("zed")["calibration_path"]
-        aps_frames_topic = rospy.get_param("zed")["aps_frames_topic"]
-        reconstructed_frames_topic = rospy.get_param(
-            "zed")["reconstructed_frames_topic"]
-        output_file_arucos = rospy.get_param("zed")["output_file_arucos"]
-    elif camera == "rs":
-        calibration_path = rospy.get_param("rs")["calibration_path"]
-        aps_frames_topic = rospy.get_param("rs")["aps_frames_topic"]
-        reconstructed_frames_topic = rospy.get_param(
-            "rs")["reconstructed_frames_topic"]
-        output_file_arucos = rospy.get_param("rs")["output_file_arucos"]
-    elif camera == "ecap":
-        calibration_path = rospy.get_param("ecap")["calibration_path"]
-        aps_frames_topic = rospy.get_param("ecap")["aps_frames_topic"]
-        reconstructed_frames_topic = rospy.get_param(
-            "ecap")["reconstructed_frames_topic"]
-        output_file_arucos = rospy.get_param("ecap")["output_file_arucos"]
+            camera)["reconstructed_frames_topic"]
+        output_file_arucos = catkin_path + rospy.get_param(camera)["output_file_arucos"]
     else:
         rospy.logerr("Not the correct camera")
         raise Exception("Select the correct camera")

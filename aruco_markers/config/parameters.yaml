@@ -1,3 +1,8 @@
+# Path to your catkin_ws
+catkin_path: /home/grvc/catkin_ws
+
+# All the following paths must be relative to catkin_path!
+
 # Aruco marker type
 aruco_type: DICT_5X5_50
 # Parameters for each camera:
@@ -6,28 +11,27 @@ aruco_type: DICT_5X5_50
 #  -- reconstructed_frames_topic: Topic containing the reconstructed images
 #  -- output_file_arucos: File in which to write the timestamps along with the number of detected arucos
 blue:
-  calibration_path: /home/grvc/catkin_ws/src/aruco_markers/config/calibration_blue.yaml
+  calibration_path: src/aruco_markers/config/calibration_blue.yaml
   aps_frames_topic: /mv_26808133/image_raw
   reconstructed_frames_topic: False
-  output_file_arucos: /home/grvc/catkin_ws/src/text_from_images/output/OutArucoBlue.csv 
+  output_file_arucos: src/text_from_images/output/OutArucoBlue.csv 
 elp:
   calibration_path: False
   aps_frames_topic: /usb_cam/image_raw
   reconstructed_frames_topic: False
-  output_file_arucos: /home/grvc/catkin_ws/src/text_from_images/output/OutArucoElp.csv 
+  output_file_arucos: src/text_from_images/output/OutArucoElp.csv 
 zed:
   calibration_path: False
   aps_frames_topic: /zed/zed_node/rgb/image_rect_color
   reconstructed_frames_topic: False
-  output_file_arucos: /home/grvc/catkin_ws/src/text_from_images/output/OutArucoZed.csv
+  output_file_arucos: src/text_from_images/output/OutArucoZed.csv
 rs:
   calibration_path: False
   aps_frames_topic: /camera/color/image_raw
   reconstructed_frames_topic: False
-  output_file_arucos: /home/grvc/catkin_ws/src/text_from_images/output/OutArucoRs.csv 
+  output_file_arucos: src/text_from_images/output/OutArucoRs.csv 
 ecap:
   calibration_path: False
   aps_frames_topic: /dm_preview/8071/left/image_color
   reconstructed_frames_topic: False
-  output_file_arucos: /home/grvc/catkin_ws/src/text_from_images/output/OutArucoEcap.csv
-
+  output_file_arucos: src/text_from_images/output/OutArucoEca.csv
