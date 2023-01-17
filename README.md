@@ -1,6 +1,6 @@
 ## 2nd practice ROS
 
-We introduce the necessary steps to reproduce the results provided in the paper:
+We introduce the necessary steps to install and configure the repository:
 
 1. Clone the repository:
 
