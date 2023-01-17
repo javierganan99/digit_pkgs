@@ -1,4 +1,4 @@
-## Reproduction of the experiments of the incremental luxes vs detected ArUcos for the cameras
+## 2nd practice ROS
 
 We introduce the necessary steps to reproduce the results provided in the paper:
 
