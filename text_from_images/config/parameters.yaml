@@ -17,13 +17,13 @@ boxes:
 #  -- topic digits: Topic in which the image of the digits is published
 #  -- output_file_luxes: File in which to write the timestamps along with the read digits
 blue:
-  int_points: # GRADED: Add the points
-  pts_dst: # GRADED: Add the points
+  int_points: [[0, 0], [0, 0], [0, 0], [0, 0]] # GRADED: Add the points
+  pts_dst: [[0, 0], [0, 0], [0, 0], [0, 0]] # GRADED: Add the points
   topic_digits: /usb_cam/image_raw
   output_file_luxes: src/text_from_images/output/Recognized_blue.txt 
 elp:
-  int_points: # GRADED: Add the points
-  pts_dst: # GRADED: Add the points
+  int_points: [[0, 0], [0, 0], [0, 0], [0, 0]] # GRADED: Add the points
+  pts_dst: [[0, 0], [0, 0], [0, 0], [0, 0]] # GRADED: Add the points
   topic_digits: /camera/color/image_raw
   output_file_luxes: src/text_from_images/output/Recognized_elp.txt 
 zed:

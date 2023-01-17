@@ -8,7 +8,7 @@
   <rosparam file="$(find text_from_images)/config/parameters.yaml" />
   <!-- File containing the parameters for detecting the arucos -->
   <rosparam file="$(find aruco_markers)/config/parameters.yaml" />
-  <!-- Node to read the digist -->
+  <!-- Node to read the digits -->
   <node name="read_text" pkg="text_from_images" type="read_text.py" output="screen">
     <param name="camera" value="$(arg camera)" />
     <param name="show" value="$(arg show)" />

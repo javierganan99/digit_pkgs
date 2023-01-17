@@ -1,5 +1,6 @@
 import tensorflow as tf
 from keras.layers import Conv2D, MaxPool2D, Dropout, Flatten, Dense
+import os
 
 # Needed to asign memory to GPUs ###############################################
 gpus = tf.config.experimental.list_physical_devices('GPU')
@@ -56,7 +57,7 @@ def CNN_digit():
 
 if __name__== '__main__':
     IMG_SIZE = 28
-    IMG_DIR = './../dataset'
+    IMG_DIR = os.path.realpath(os.path.dirname(__file__)) + '/../dataset'
     BATCH_SIZE = 8
     
     def min_max_norm(x):
@@ -97,7 +98,7 @@ if __name__== '__main__':
     """
     
     # Save model
-    model.save('./../model/digit_classification.h5')
+    model.save(os.path.realpath(os.path.dirname(__file__)) + '/../model/digit_classification.h5')
 
 
 
