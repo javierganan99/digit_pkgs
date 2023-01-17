@@ -28,7 +28,7 @@ $ cd /path_to_your_catkin_ws && catkin_make
 3. Download and unzip the bags, model and used dataset for digit model:
 
 ```
-$ mkdir data && cd data
+$ cd && mkdir data && cd data
 ```
 
 ```
