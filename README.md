@@ -53,7 +53,7 @@ cp -r dataset/ /path_to_your_catkin_ws/src/text_from_images
 
 6. Change the *catkin_path* parameter in both packages *parameters.yaml* file, inside *config* folder indicating your catkin workspace path.
 
-7. Install the following with pip (after installing pip if don´t installed yet):
+7. Install the following dependencies with pip (after installing pip if don´t installed yet):
   - To install pip:
   ```
   sudo apt update
